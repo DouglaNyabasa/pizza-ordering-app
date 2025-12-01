@@ -1,11 +1,9 @@
+import '../entities/entities.dart';
 
-
-import 'package:user_repository/src/entities/entities.dart';
-
-class MyUser{
+class MyUser {
   String userId;
-  String name;
   String email;
+  String name;
   bool hasActiveCart;
 
   MyUser({
@@ -13,38 +11,35 @@ class MyUser{
     required this.email,
     required this.name,
     required this.hasActiveCart,
-
   });
 
   static final empty = MyUser(
-    userId: '',
-    email: '',
-    name: '',
+		userId: '', 
+		email: '', 
+		name: '',
     hasActiveCart: false,
-  );
+	);
 
-  MyUserEntity toEntity(){
+  MyUserEntity toEntity() {
     return MyUserEntity(
-      userId: userId,
-      email: email,
+      userId: userId, 
+      email: email, 
       name: name,
-      hasActiveCart: hasActiveCart
+      hasActiveCart: hasActiveCart,
     );
   }
 
-  static MyUser fromEntity(MyUserEntity entity){
+  static MyUser fromEntity(MyUserEntity entity) {
     return MyUser(
-        userId: entity.userId,
-        name: entity.name,
-        email: entity.email,
-        hasActiveCart: entity.hasActiveCart
+      userId: entity.userId, 
+      email: entity.email, 
+      name: entity.name, 
+      hasActiveCart: entity.hasActiveCart
     );
   }
 
-@override
+  @override
   String toString() {
-    return 'MyUser: $userId, $name, $email, $hasActiveCart';
+    return 'MyUser: $userId, $email, $name, $hasActiveCart';
   }
-
-
 }
